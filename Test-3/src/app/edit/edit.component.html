@@ -1,0 +1,69 @@
+<div class="container" style="height: 200%; width: 200%">
+    <h1>Edit Program</h1>
+  
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+      <div class="form-group">
+        <label>
+          Program Name:
+          <input type="text" class="form-control" name="name" [(ngModel)]="selectedProgram.programName" required />
+           <!-- <div *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
+        Program name is required.
+      </div>  -->
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Program Number:
+          <input
+            type="number"
+            class="form-control"
+            name="number" 
+            [(ngModel)]="selectedProgram.programNumber"
+            required
+          />
+          <!-- <div *ngIf="form.controls.number.touched && form.controls.number.errors?.required">
+        Program number is required.
+      </div> -->
+        </label>
+      </div>
+  
+      <div class="form-group">
+        <label>
+          Program Budget:
+          <input
+            type="number"
+            class="form-control"
+            name="budget"
+            [(ngModel)]="selectedProgram.programBudget"
+            required
+          />
+          <!-- <div *ngIf="form.controls.budget.touched && form.controls.budget.errors?.required">
+        Program budget is required.
+      </div> -->
+        </label>
+      </div>
+  
+      <div class="form-group">
+        <label>
+          Program Description:
+          <textarea
+            name="description"
+            class="form-control"
+            [(ngModel)]="selectedProgram.programDescription"
+            required
+          ></textarea>
+          <!-- <div *ngIf="form.controls.description.touched && form.controls.description.errors?.required">
+        Program description is required.
+      </div> -->
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+        <label class="form-check-label" for="defaultCheck1">
+          Virtual Program
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+  
