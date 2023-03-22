@@ -16,19 +16,20 @@
     
     <e-column headerText='Actions' width=120>
       <ng-template #template let-data>
-        <button (click)="onEdit(data)">Edit</button>
+        <button ejs-button class="btn btn-primary"(click)="onEdit(data)">Edit</button>
+        <button ejs-button class="btn btn-warning" (click)="changeStatus(data.programID,data,!data.isActive)">{{data.isActive?'Activate':'Deactive'}}</button>
         
       </ng-template>
     </e-column>
 
-  <e-column field='isActive' headerText='status' textAlign='Right' width=120>
+  <!-- <e-column field='isActive' headerText='status' textAlign='Right' width=120>
     <ng-template #template let-data>
       
       <span *ngIf="data.isActive; else deactiveText">Deactive</span>
 
       <ng-template #deactiveText> Active </ng-template>
     </ng-template>
-  </e-column>
+  </e-column> -->
   
   </e-columns>
 </ejs-grid>

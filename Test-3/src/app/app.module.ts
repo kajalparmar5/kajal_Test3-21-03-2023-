@@ -7,11 +7,11 @@ import { GridModule } from '@syncfusion/ej2-angular-grids';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreatePopupComponent } from './create-popup/create-popup.component';
+import { CreatePopupComponent } from './component/create-popup/create-popup.component';
 import { FormsModule } from '@angular/forms';
-import { EditComponent } from './edit/edit.component';
-
-
+import { EditComponent } from './component/edit/edit.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,9 @@ import { EditComponent } from './edit/edit.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

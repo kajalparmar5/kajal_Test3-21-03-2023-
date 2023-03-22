@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MyServicesService } from './my-services.service';
+import { MyServicesService } from './service/my-services.service';
 import { MatDialog } from '@angular/material/dialog';
 
-import { CreatePopupComponent } from './create-popup/create-popup.component';
-import { EditComponent } from './edit/edit.component';
-import { DataType } from './data-type';
+import { CreatePopupComponent } from './component/create-popup/create-popup.component';
+import { EditComponent } from './component/edit/edit.component';
+import { DataType } from './interface/data-type';
 
 @Component({
   selector: 'app-root',
@@ -22,7 +22,10 @@ export class AppComponent implements OnInit{
   constructor(private service :MyServicesService , private dialog:MatDialog){}
 
   onCreate(){
-    this.dialog.open(CreatePopupComponent)
+    this.dialog.open(CreatePopupComponent,{
+      width: '900px',
+      restoreFocus: true,
+    })
   }
 
   ngOnInit() {
@@ -34,4 +37,12 @@ export class AppComponent implements OnInit{
   onEdit(data:any){
     this.dialog.open(EditComponent,{data:data})
   }
+  changeStatus(programID: string, data: DataType, isActive: boolean) {
+    this.service.changeStatus(programID, data, isActive).subscribe()
+  }
+  // onDeActive(data:DataType){
+  //   this.service.isDeactiveData(data.programID).subscribe(res=>console.log(res))
+
+  // }
+
 }
