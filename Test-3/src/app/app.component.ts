@@ -46,12 +46,13 @@ export class AppComponent implements OnInit {
   changeStatus(data: DataType) {
     if (data.isActive) {
       console.log('true');
-      this.service.isDeactiveData(data.programID).subscribe(res=>{console.log(res);
+      this.service.isActiveData(data.programID).subscribe(res=>{console.log(res);
       })
+      
       data.isActive = !data.isActive;
     } else {
       console.log('false');
-      this.service.isActiveData(data.programID).subscribe(res=>{console.log(res);
+      this.service.isDeactiveData(data.programID).subscribe(res=>{console.log(res);
       })
       data.isActive = !data.isActive;
     }
