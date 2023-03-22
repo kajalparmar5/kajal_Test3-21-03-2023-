@@ -9,40 +9,49 @@ import { DataType } from './interface/data-type';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'Test-3';
-  programData: any = [];
-  value:any=[]
-  buttonText:any
-  selectedProgram :DataType | undefined
+  programData: DataType[] = [];
+  value: any = [];
+  buttonText: any;
+  selectedProgram: DataType | undefined;
 
+  constructor(private service: MyServicesService, private dialog: MatDialog) {}
 
-  constructor(private service :MyServicesService , private dialog:MatDialog){}
-
-  onCreate(){
-    this.dialog.open(CreatePopupComponent,{
+  onCreate() {
+    this.dialog.open(CreatePopupComponent, {
       width: '900px',
       restoreFocus: true,
-    })
+    });
   }
 
   ngOnInit() {
-    this.service.getData().subscribe((Response)=>{
-      this.programData=Response
-      console.log(Response)
-    })
+    this.getAll();
   }
-  onEdit(data:any){
-    this.dialog.open(EditComponent,{data:data})
+  getAll() {
+    this.service.getData().subscribe((res) => {
+      this.programData = res;
+      console.log(res);
+      console.log(this.programData);
+    });
+    this.service.newProgram.subscribe((res) => {
+      this.programData = res;
+    });
   }
-  changeStatus(programID: string, data: DataType, isActive: boolean) {
-    this.service.changeStatus(programID, data, isActive).subscribe()
+  onEdit(data: any) {
+    this.dialog.open(EditComponent, { data: data });
   }
-  // onDeActive(data:DataType){
-  //   this.service.isDeactiveData(data.programID).subscribe(res=>console.log(res))
-
-  // }
-
+  changeStatus(data: DataType) {
+    if (data.isActive) {
+      console.log('true');
+      this.service.isDeactiveData(data.programID);
+      data.isActive = !data.isActive;
+    } else {
+      console.log('false');
+      this.service.isActiveData(data.programID);
+      data.isActive = !data.isActive;
+    }
+  }
 }

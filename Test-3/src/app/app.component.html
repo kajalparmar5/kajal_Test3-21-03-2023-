@@ -1,40 +1,48 @@
+<router-outlet></router-outlet>
+<h1>CRUD</h1>
 
-<router-outlet></router-outlet><h1>CRUD</h1>
-
-
-<button class="Create" (click)=" onCreate()">Create</button>
+<button class="Create" (click)="onCreate()">Create</button>
 <div>
-  <hr>
+  <hr />
 </div>
-<ejs-grid [dataSource]='programData.programs' [allowPaging]='true'>
+<ejs-grid [dataSource]="programData" [allowPaging]="false">
   <e-columns>
-    <e-column field='programName' headerText='programName' width=150></e-column>
-    <e-column field='programNumber' headerText='programNumber' width=150></e-column>
-    <e-column field='programBudget' headerText='programBudget' width=150></e-column>
-    <e-column field='programID' headerText='programID' textAlign='Right' width=120></e-column>
-    <e-column field='programDescription' headerText='programDescription' textAlign='Right' width=120></e-column>
-    
-    <e-column headerText='Actions' width=120>
+    <e-column
+      field="programName"
+      headerText="programName"
+      width="150"
+    ></e-column>
+    <e-column
+      field="programNumber"
+      headerText="programNumber"
+      width="150"
+    ></e-column>
+    <e-column
+      field="programBudget"
+      headerText="programBudget"
+      width="150"
+    ></e-column>
+    <e-column
+      field="programID"
+      headerText="programID"
+      textAlign="Right"
+      width="120"
+    ></e-column>
+    <e-column
+      field="programDescription"
+      headerText="programDescription"
+      textAlign="Right"
+      width="120"
+    ></e-column>
+    <e-column headerText="Actions" width="120">
       <ng-template #template let-data>
-        <button ejs-button class="btn btn-primary"(click)="onEdit(data)">Edit</button>
-        <button ejs-button class="btn btn-warning" (click)="changeStatus(data.programID,data,!data.isActive)">{{data.isActive?'Activate':'Deactive'}}</button>
-        
+        <button ejs-button class="btn btn-primary" (click)="onEdit(data)">
+          Edit
+        </button>
+        <button ejs-button class="btn btn-warning" (click)="changeStatus(data)">
+          {{ data.isActive ? "Activate" : "Deactive" }}
+        </button>
       </ng-template>
     </e-column>
-
-  <!-- <e-column field='isActive' headerText='status' textAlign='Right' width=120>
-    <ng-template #template let-data>
-      
-      <span *ngIf="data.isActive; else deactiveText">Deactive</span>
-
-      <ng-template #deactiveText> Active </ng-template>
-    </ng-template>
-  </e-column> -->
-  
   </e-columns>
 </ejs-grid>
-
-
-
-
-

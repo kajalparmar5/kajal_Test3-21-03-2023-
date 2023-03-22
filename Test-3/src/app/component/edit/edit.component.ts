@@ -27,7 +27,7 @@ export class EditComponent implements OnInit, AfterViewInit {
     this.selectedProgram = data;
   }
 
-  selectedProgram!: DataType;
+  selectedProgram: DataType;
 
   ngOnInit(): void {}
 
@@ -35,7 +35,7 @@ export class EditComponent implements OnInit, AfterViewInit {
   onSubmit(data: DataType) {
     this.service.updateData(this.selectedProgram).subscribe((res) => {
       console.log(res);
-      this.dialogRef.close(true);
     });
+    this.dialogRef.close(true);
   }
 }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule,HttpClient }from '@angular/common/http'
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GridModule } from '@syncfusion/ej2-angular-grids';
@@ -14,11 +14,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    CreatePopupComponent,
-    EditComponent
-  ],
+  declarations: [AppComponent, CreatePopupComponent, EditComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,10 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatDialogModule,
     FormsModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

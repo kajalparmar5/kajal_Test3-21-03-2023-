@@ -5,10 +5,10 @@
     <div class="form-group">
       <label>
         Program Name:
-        <input type="text" class="form-control" name="name" ngModel required />
-         <!-- <div *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
+        <input type="text" class="form-control" name="programName" [(ngModel)]="program.programName" required />
+          <!-- <div *ngIf="form.controls.name.touched && form.controls.name.errors?.required">
       Program name is required.
-    </div>  -->
+    </div>   -->
       </label>
     </div>
     <div class="form-group">
@@ -17,8 +17,8 @@
         <input
           type="number"
           class="form-control"
-          name="number"
-          ngModel
+          name="programNumber"
+          [(ngModel)]="program.programNumber"
           required
         />
         <!-- <div *ngIf="form.controls.number.touched && form.controls.number.errors?.required">
@@ -33,8 +33,8 @@
         <input
           type="number"
           class="form-control"
-          name="budget"
-          ngModel
+          name="programBudget"
+          [(ngModel)]="program.programBudget"
           required
         />
         <!-- <div *ngIf="form.controls.budget.touched && form.controls.budget.errors?.required">
@@ -47,9 +47,9 @@
       <label>
         Program Description:
         <textarea
-          name="description"
+          name="programDescription"
           class="form-control"
-          ngModel
+          [(ngModel)]="program.programDescription"
           required
         ></textarea>
         <!-- <div *ngIf="form.controls.description.touched && form.controls.description.errors?.required">
@@ -58,7 +58,7 @@
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+      <input class="form-check-input" [(ngModel)]="program.isVirtual" name="isVirtual" type="checkbox" value="" id="defaultCheck1">
       <label class="form-check-label" for="defaultCheck1">
         Virtual Program
       </label>
